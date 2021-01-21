@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div>
+    <h2>Buy for $5.00</h2>
+    <form action="/checkout" method="post">
+      <script
+        src="https://checkout.stripe.com/checkout.js"
+        class="stripe-button"
+        data-key="{{ key }}"
+        data-description="A Flask Charge"
+        data-amount="500"
+        
+        data-locale="auto">
+      </script>
+    </form>
+
+    <form action="/razorpay" method="post">
+      <script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          data-key="{{razorPayKey}}"
+          data-amount="5100"
+          
+          data-name="Abhishek Sample"
+          data-description="Purchase Description"
+          data-image="vk.jpg"
+        
+          data-netbanking="true"
+          data-description="Tron Legacy"
+          
+          data-notes.shopping_order_id="21">
+      </script>
+      <input type="hidden" name="shopping_order_id" value="21">
+  </form>
+  </div>
+{% endblock %}
